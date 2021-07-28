@@ -61,11 +61,9 @@ export class FormComponent implements OnInit {
       e.target.parentNode.parentNode.childNodes[1].textContent *
       e.target.parentNode.parentNode.childNodes[2].textContent ;
       
-
+      this.grandTotal += e.target.parentNode.parentNode.childNodes[3].textContent - this.tempTotal;
       e.target.className="fas fa-edit"
-      e.target.id="Edit"
-
-      
+      e.target.id="Edit"      
     }
   
      
