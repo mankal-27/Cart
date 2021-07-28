@@ -10,6 +10,8 @@ export class FormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    localStorage.setItem("new","hello");
+    
   }
 
   itemname: string = '';
@@ -18,11 +20,8 @@ export class FormComponent implements OnInit {
   total : number | 0;
   grandTotal: number | 0;
   tempTotal : number | 0;
-  enableEdit = false;
-  enableEditIndex = null;
-
+  
   product = [];
-
   clickme(){
 
   this.product.push(
@@ -75,4 +74,18 @@ export class FormComponent implements OnInit {
     this.grandTotal -= e.total;
 
   }
+
+  setData(data){
+    const jsonData = JSON.stringify(data)
+    localStorage.setItem('myData', jsonData)
+  }
+
+  getData(){
+    return localStorage.getItem('myData');
+  }
+
+  removeData(key){
+    localStorage.removeItem(key);
+  }
+  
 }
