@@ -42,24 +42,33 @@ export class FormComponent implements OnInit {
  
   Editme(e){
     console.log("i am Editable");
-    if(e.target.id == 'Edit'){
+    if(e.target.id=="Edit"){
       //console.log("hi there")
       e.target.parentNode.parentNode.childNodes[0].contentEditable = true;
       e.target.parentNode.parentNode.childNodes[1].contentEditable = true;
       e.target.parentNode.parentNode.childNodes[2].contentEditable = true;  
       this.tempTotal = e.target.parentNode.parentNode.childNodes[3].textContent;
-      e.target.id = 'Save';
+      e.target.className="fas fa-save"
+      e.target.id="Save"    
     }
     else{
       console.log(this.tempTotal);
-    }
-     
-  }
+      e.target.parentNode.parentNode.childNodes[0].contentEditable = false;
+      e.target.parentNode.parentNode.childNodes[1].contentEditable = false;
+      e.target.parentNode.parentNode.childNodes[2].contentEditable = false;
+      
+      e.target.parentNode.parentNode.childNodes[3].textContent = 
+      e.target.parentNode.parentNode.childNodes[1].textContent *
+      e.target.parentNode.parentNode.childNodes[2].textContent ;
+      
 
-  enableEditMethod(e, i) {
-    this.enableEdit = true;
-    this.enableEditIndex = i;
-    console.log(i, e);
+      e.target.className="fas fa-edit"
+      e.target.id="Edit"
+
+      
+    }
+  
+     
   }
 
   Deleteme(e){
